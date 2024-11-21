@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# local_spec_path="./oas/collection.yaml"
+local_spec_path="./oas/disbursement.yaml"
+client_dir="./dist"
+
+# Generate the client using the downloaded spec
+echo "Generating client from $local_spec_path..."
+java -jar bin/tools/openapi-generator-cli.jar generate -i "$local_spec_path" -g php -o "$client_dir" --invoker-package "Mtn\\Momo\\Disbursement" --additional-properties=composerPackageName=mtnmomo/disbursement -t templates
